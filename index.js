@@ -27,8 +27,8 @@ class Field {
             x: 0,
             y: 0
         };
-        this.locationX = 0;
-        this.locationY = 0;
+        this.x = 0;
+        this.y = 0;
         this.gameStatue= true;
         // this.field[0][0]=pathCharacter;
     }
@@ -55,8 +55,8 @@ class Field {
 
     setStart() {
         this.start = this.renPos();
-        this.locationX = this.start.x;
-        this.locationY = this.start.y;
+        this.x = this.start.x;
+        this.y = this.start.y;
         this.field[this.start.y][this.start.x] = pathCharacter;
     }
 
@@ -70,19 +70,19 @@ class Field {
         switch (key) {
             case "w":
                 console.log(`Go top`);
-                this.locationY -= 1;
+                this.y -= 1;
                 break;
             case "a":
                 console.log(`Go left`);
-                this.locationX -= 1;
+                this.x -= 1;
                 break;
             case "s":
                 console.log(`Go down`);
-                this.locationY += 1;
+                this.y += 1;
                 break;
             case "d":
                 console.log(`Go right`);
-                this.locationX += 1;
+                this.x += 1;
                 break;
             case "end":
                 this.gameStatue = false;
@@ -117,34 +117,34 @@ class Field {
                 break;
               }
 
-        this.field[this.locationY][this.locationX] = pathCharacter;
+        this.field[this.y][this.x] = pathCharacter;
         }      
     }
 
     setoutsite() {
         return (
-          this.locationY >= 0 &&
-          this.locationX >= 0 &&
-          this.locationY < this.field.length &&
-          this.locationX < this.field[0].length
+          this.y >= 0 &&
+          this.x >= 0 &&
+          this.y < this.field.length &&
+          this.x < this.field[0].length
         );
       }
 
       setHat() {
-        return this.field[this.locationY][this.locationX] === hat;
+        return this.field[this.y][this.x] === hat;
       }
       
       setHole() {
-        return this.field[this.locationY][this.locationX] === hole;
+        return this.field[this.y][this.x] === hole;
       }
       
 
       setoutsite() {
         return (
-          this.locationY >= 0 &&
-          this.locationX >= 0 &&
-          this.locationY < this.field.length &&
-          this.locationX < this.field[0].length
+          this.y >= 0 &&
+          this.x >= 0 &&
+          this.y < this.field.length &&
+          this.x < this.field[0].length
         );
       }
 
